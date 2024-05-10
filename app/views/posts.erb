@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hacker News</title>
+</head>
+<body>
+  <h1>Hacker News</h1>
+
+  <!-- Formulário para cadastrar um novo post -->
+  <form action="/posts" method="post">
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content"></textarea><br>
+
+    <input type="submit" value="Send">
+  </form>
+
+  <!-- Lista de posts existentes -->
+  <h2>Posts</h2>
+  <ol>
+    <% @posts.each do |post| %>
+      <li><a href = "/<%=post.id %>"> <%= post.title %></a> : <%=post.votes%> votes<br><br>
+    <% end %></li>
+  </ol>
+</body>
+</html>
